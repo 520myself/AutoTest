@@ -1,13 +1,13 @@
 <component name="libraryTable">
-  <library name="Maven: org.freemarker:freemarker:2.3.23">
+  <library name="Maven: org.testng:testng:6.8">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/freemarker/freemarker/2.3.23/freemarker-2.3.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/testng/testng/6.8/testng-6.8.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/freemarker/freemarker/2.3.23/freemarker-2.3.23-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/testng/testng/6.8/testng-6.8-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/freemarker/freemarker/2.3.23/freemarker-2.3.23-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../maven-repo/org/testng/testng/6.8/testng-6.8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
