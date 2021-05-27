@@ -13,6 +13,6 @@
         </classes>
     </test>
     <listeners>
-        <listener class-name="com.tester.extend.dome.ExtentTestNGIReporterListenerOld"/>
+        <listener class-name="com.tester.extend.dome.ExtentTestNGIReporterListener"/>
     </listeners>
 </suite>
