@@ -9,6 +9,6 @@ public class AddUserCase {
     private String age;
     private String sex;
     private String permission;
-    private String idDelete;
+    private String isDelete;
     private String expected;
 }

@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class updateUserInfoCase {
-
     @Test(dependsOnGroups = "loginTrue",description = "更改用户信息")
     public void updateUserInfo() throws IOException {
         SqlSession session = DataBaseUtil.getSqlSession();

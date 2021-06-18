@@ -10,6 +10,6 @@ public class TestConfig {
     public static String updateUserInfoUrl;
     public static String addUserInfoUrl;
 
-    public static CloseableHttpClient httpClient;
     public static CookieStore store;
+    public static CloseableHttpClient httpClient;
 }
