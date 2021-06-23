@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class addUserCase {
     @Test(dependsOnGroups = "loginTrue",description = "添加用户接口测试")
-    public void addUser() throws IOException {
+    public void addUser() throws IOException, InterruptedException {
         SqlSession session = DataBaseUtil.getSqlSession();
         AddUserCase addUserCase = session.selectOne("addUserCase",1);
         System.out.println(addUserCase.toString());
@@ -26,9 +26,11 @@ public class addUserCase {
 
         //发请求，获取结果
         String result = getResult(addUserCase);
+        Thread.sleep(5000);
         //验证返回结果
+
         User user = session.selectOne("addUser",addUserCase);
-        System.out.println(user.toString());
+//        System.out.println(user.toString());
         Assert.assertEquals(addUserCase.getExpected(),result);
     }
 
@@ -40,7 +42,7 @@ public class addUserCase {
         param.put("age",addUserCase.getAge());
         param.put("sex",addUserCase.getSex());
         param.put("permission",addUserCase.getPermission());
-        param.put("permission",addUserCase.getIsDelete());
+        param.put("isDelete",addUserCase.getIsDelete());
 
         //设置请求头
         post.setHeader("Content-Type","application/json");
@@ -48,6 +50,7 @@ public class addUserCase {
         post.setEntity(entity);
         //设置cookies
         TestConfig.httpClient = HttpClients.custom().setDefaultCookieStore(TestConfig.store).build();
+        System.out.println(TestConfig.store.toString());
         String result;//存放返回结果
         CloseableHttpResponse response = TestConfig.httpClient.execute(post);
         result = EntityUtils.toString(response.getEntity());

@@ -7,17 +7,20 @@ import com.course.utils.ConfigFile;
 import com.course.utils.DataBaseUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.json.Cookie;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 
 public class loginTestCase {
 
@@ -61,9 +64,10 @@ public class loginTestCase {
         StringEntity entity = new StringEntity(param.toString(),"utf-8");
         post.setEntity(entity);
         String result;
-        CloseableHttpResponse response = TestConfig.httpClient.execute(post);
-        result = EntityUtils.toString(response.getEntity());
         TestConfig.store = new BasicCookieStore();
+        TestConfig.httpClient = HttpClients.custom().setDefaultCookieStore(TestConfig.store).build();
+        CloseableHttpResponse response = TestConfig.httpClient. execute(post);
+        result = EntityUtils.toString(response.getEntity());
         System.out.println("cookies------"+TestConfig.store.getCookies());
         return result;
     }

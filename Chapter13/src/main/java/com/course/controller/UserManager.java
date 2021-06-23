@@ -53,7 +53,7 @@ public class UserManager {
     }
 
     @ApiOperation(value = "更新/删除用户接口",httpMethod = "POST")
-    @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateUserInfo",method = RequestMethod.POST)
     public int updateUser(HttpServletRequest request,@RequestBody User user){
         boolean x = verifyCookies(request);
         int i =0;
@@ -80,6 +80,7 @@ public class UserManager {
     }
 
     private Boolean verifyCookies(HttpServletRequest request) {
+        String cks = request.getHeader("cookie");
         Cookie[] cookies = request.getCookies();
         if (Objects.isNull(cookies)){
             log.info("cookies为空");
