@@ -10,7 +10,7 @@ spring:
     name: userManager
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1/mycase?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+    url: jdbc:mysql://192.168.18.75/mycase?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
     username: root
     password: root
 
