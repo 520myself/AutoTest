@@ -25,6 +25,13 @@ public class UserManager {
     @Autowired
     private SqlSessionTemplate template;
 
+    @ApiOperation(value = "调试接口",httpMethod = "POST")
+    @RequestMapping(value = "/test",method = RequestMethod.POST)
+    public List<User> test(){
+        List<User> users = template.selectList("test");
+        return users;
+    }
+
     @ApiOperation(value = "登录接口",httpMethod = "POST")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Boolean login(HttpServletResponse response, @RequestBody User user){
